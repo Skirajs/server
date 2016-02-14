@@ -1,6 +1,6 @@
 {
   "name": "skira-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skirajs/server.git"
+    "url": "git+https://github.com/skira-project/server.git"
   },
   "keywords": [
     "skira"
@@ -16,9 +16,9 @@
   "author": "Skira project",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/skirajs/server/issues"
+    "url": "https://github.com/skira-project/server/issues"
   },
-  "homepage": "https://github.com/skirajs/server#readme",
+  "homepage": "https://github.com/skira-project/server#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "clone": "^1.0.2",

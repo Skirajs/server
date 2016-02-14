@@ -1,0 +1,30 @@
+{
+  "name": "skira-server",
+  "version": "0.1.0",
+  "description": "Server for serving skira sites from the back-end.",
+  "main": "lib/server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skirajs/server.git"
+  },
+  "keywords": [
+    "skira"
+  ],
+  "author": "Skira project",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skirajs/server/issues"
+  },
+  "homepage": "https://github.com/skirajs/server#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "clone": "^1.0.2",
+    "compression": "^1.6.1",
+    "connect": "^3.4.1",
+    "skira-core": "^0.1.0",
+    "st": "^1.1.0"
+  }
+}

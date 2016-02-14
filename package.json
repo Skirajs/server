@@ -1,8 +1,11 @@
 {
   "name": "skira-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
+  "bin": {
+    "skira-server": "bin/skira-server.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

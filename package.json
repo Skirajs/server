@@ -1,6 +1,6 @@
 {
   "name": "skira-server",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
   "bin": {

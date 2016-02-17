@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var fs = require("fs");
+var pathTool = require("path");
 var Server = require("../");
 
 var port = process.env.PORT;
@@ -13,8 +14,10 @@ if (process.argv.length > 2) {
 	}
 }
 
+var site;
+
 try {
-	var site = require(pathTool.resolve("site"));
+	site = require(pathTool.resolve("site"));
 } catch (err) {
 	console.error("Could not load site.js:");
 	console.error(err.stack);
@@ -23,6 +26,6 @@ try {
 
 var server = new Server(site);
 
-server.start(null, function(addr) {
+server.start(port, function(addr) {
 	console.log("Listening on %s:%d", addr.address, addr.port);
 });

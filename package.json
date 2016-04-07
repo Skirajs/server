@@ -1,20 +1,22 @@
 {
   "name": "skira-server",
-  "version": "0.3.3",
+  "version": "0.7.0",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
   "bin": {
-    "skira-server": "bin/skira-server.js"
+    "lint": "eslint src && jscs src",
+    "skira-server": "bin/server.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel -d lib src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/skira-project/server.git"
   },
   "keywords": [
-    "skira"
+    "skira",
+    "server"
   ],
   "author": "Skira project",
   "license": "MIT",
@@ -23,11 +25,25 @@
   },
   "homepage": "https://github.com/skira-project/server#readme",
   "dependencies": {
+    "babel-runtime": "^6.6.1",
     "body-parser": "^1.15.0",
-    "clone": "^1.0.2",
     "compression": "^1.6.1",
     "connect": "^3.4.1",
-    "skira-core": "^0.4.0",
+    "cookies": "^0.6.1",
+    "skira-core": "^0.7.0-2",
     "st": "^1.1.0"
-  }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-eslint": "^6.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^2.7.0",
+    "jscs": "^2.11.0",
+    "pre-commit": "^1.1.2"
+  },
+  "pre-commit": [
+    "build"
+  ]
 }

@@ -1,14 +1,14 @@
 {
   "name": "skira-server",
-  "version": "0.7.0",
+  "version": "0.7.0-1",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
   "bin": {
-    "lint": "eslint src && jscs src",
     "skira-server": "bin/server.js"
   },
   "scripts": {
-    "build": "babel -d lib src"
+    "build": "babel -d lib src",
+    "lint": "eslint src && jscs src"
   },
   "repository": {
     "type": "git",

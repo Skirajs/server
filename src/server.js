@@ -11,21 +11,27 @@ function Server(site) {
 }
 
 Server.prototype.start = async function start(port, ip) {
-	if (this.httpServer && this.httpServer.address()) {
-		await this.stop()
-	}
+	await this.stop()
 
 	this.httpServer = http.createServer(this.app)
 
 	await new Promise((resolve) => {
-		this.httpServer.listen(port, ip, () => resolve(this.httpServer.address()))
+		this.httpServer.listen(port, ip, resolve)
 	})
+
+	return this.httpServer.address()
 }
 
 Server.prototype.stop = async function stop() {
+	if (!this.httpServer) {
+		return
+	}
+
 	await new Promise((resolve) => {
 		this.httpServer.close(resolve)
 	})
+
+	delete this.httpServer
 }
 
 module.exports = Server

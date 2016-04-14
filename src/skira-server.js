@@ -7,6 +7,20 @@ const Site = require("skira-core")
 
 const IS_WORKER = typeof process.send == "function"
 
+function outputError(err) {
+	if (IS_WORKER) {
+		var obj = err
+
+		if (err instanceof Error) {
+			obj = serializeError(err)
+		}
+
+		process.send({ error: obj })
+	} else {
+		console.error(err.stack || err.toString())
+	}
+}
+
 async function waitForStartSignal() {
 	await new Promise((resolve) => {
 		function handleStartSignal(m) {
@@ -47,7 +61,7 @@ async function startServer() {
 		site = new Site(siteData)
 	} catch (err) {
 		console.error("Could not load site:")
-		console.error(err.stack)
+		outputError(err)
 
 		process.exit(2)
 		return
@@ -63,11 +77,12 @@ async function startServer() {
 	}
 }
 
-if (IS_WORKER) {
-	process.on("uncaughtException", (err) => {
-		process.send({ error: serializeError(err) })
-		process.exit(3)
-	})
+function criticalError(err) {
+	outputError(err)
+	process.exit(3)
 }
+
+process.on("uncaughtException", criticalError)
+process.on("unhandledRejection", criticalError)
 
 Promise.resolve(startServer())

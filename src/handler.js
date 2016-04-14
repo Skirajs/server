@@ -2,7 +2,7 @@ function Handler(site) {
 	this.site = site
 }
 
-Handler.prototype.handleRequest = async function handleRequest(err, req, res) {
+Handler.prototype.run = async function handleRequest(err, req, res) {
 	if (err === 404) {
 		err = new Error("Page not found")
 		err.httpCode = 404
@@ -12,9 +12,7 @@ Handler.prototype.handleRequest = async function handleRequest(err, req, res) {
 		err.httpCode = 500
 	}
 
-	var url = req.url.split(/\?|&/)[0]
-	var path = err ? "error-" + err.httpCode : url.pathname
-
+	var path = err ? "error-" + err.httpCode : req.url.split(/\?|&/)[0]
 	var scope = this.site.resolve(path)
 
 	if (!scope || !scope.page) {

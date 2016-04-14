@@ -1,10 +1,10 @@
 {
   "name": "skira-server",
-  "version": "0.7.0-1",
+  "version": "0.7.1",
   "description": "Server for serving skira sites from the back-end.",
   "main": "lib/server",
   "bin": {
-    "skira-server": "bin/server.js"
+    "skira-server": "lib/skira-server.js"
   },
   "scripts": {
     "build": "babel -d lib src",
@@ -30,6 +30,7 @@
     "compression": "^1.6.1",
     "connect": "^3.4.1",
     "cookies": "^0.6.1",
+    "serialize-error": "^2.0.0",
     "skira-core": "^0.7.0-2",
     "st": "^1.1.0"
   },

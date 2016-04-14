@@ -25,8 +25,10 @@ npm install -g skira-server
 Inside your project folder you only have to run the following command. It expects build/site.js to be present.
 
 ```sh
-skira-server
+skira-server 8000 127.0.0.1
 ```
+
+The port `8000` and IP address `127.0.0.1` are optional and for demonstration purposes.
 
 ## Contributing
 

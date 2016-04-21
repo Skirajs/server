@@ -16,9 +16,9 @@ function outputError(err) {
 		}
 
 		process.send({ error: obj })
-	} else {
-		console.error(err.stack || err.toString())
 	}
+
+	console.error(err.stack || err.toString())
 }
 
 async function waitForStartSignal() {
@@ -59,6 +59,7 @@ async function startServer() {
 	try {
 		var siteData = require(pathTool.resolve("build/site.js"))
 		site = new Site(siteData)
+		await site.init()
 	} catch (err) {
 		console.error("Could not load site:")
 		outputError(err)

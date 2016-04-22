@@ -1,6 +1,6 @@
-!lib
 src
 .babelrc
 .eslintrc
 .jscsrc
 .travis.yml
+!./lib

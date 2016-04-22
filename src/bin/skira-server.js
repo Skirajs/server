@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*eslint no-console: "off"*/
 const serializeError = require("serialize-error")
-const Server = require("../")
+const Server = require("../../")
 const Site = require("skira-core")
 
 const IS_WORKER = typeof process.send == "function"

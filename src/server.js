@@ -4,8 +4,8 @@ const setupFileHandler = require("./files").setup
 const setupMiddleware = require("./middleware").setup
 
 function Server(site) {
-	var pageHandler = new Handler(site)
-	var fileHandler = setupFileHandler(site)
+	let pageHandler = new Handler(site)
+	let fileHandler = setupFileHandler(site)
 
 	this.app = setupMiddleware(pageHandler, fileHandler)
 }

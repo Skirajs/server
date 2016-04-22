@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 /*eslint no-console: "off"*/
-const pathTool = require("path")
 const serializeError = require("serialize-error")
 const Server = require("../")
 const Site = require("skira-core")
@@ -9,7 +8,7 @@ const IS_WORKER = typeof process.send == "function"
 
 function outputError(err) {
 	if (IS_WORKER) {
-		var obj = err
+		let obj = err
 
 		if (err instanceof Error) {
 			obj = serializeError(err)
@@ -35,8 +34,8 @@ async function waitForStartSignal() {
 }
 
 async function startServer() {
-	var specifiedPort = process.argv[2]
-	var ipAddress = process.argv[3]
+	let specifiedPort = process.argv[2]
+	let ipAddress = process.argv[3]
 
 	if (typeof specifiedPort != "undefined" && !(/^\d+$/).test(specifiedPort)) {
 		console.error("Invalid port specified:", process.argv[2])
@@ -45,7 +44,7 @@ async function startServer() {
 		return
 	}
 
-	var port = +specifiedPort || 0
+	let port = +specifiedPort || 0
 
 	if (IS_WORKER) {
 		await waitForStartSignal()
@@ -54,10 +53,10 @@ async function startServer() {
 		process.send({ start: true })
 	}
 
-	var site
+	let site
 
 	try {
-		var siteData = require(pathTool.resolve("build/site.js"))
+		let siteData = require(process.cwd() + "/build/site.js")
 		site = new Site(siteData)
 		await site.init()
 	} catch (err) {
@@ -68,8 +67,8 @@ async function startServer() {
 		return
 	}
 
-	var server = new Server(site)
-	var addr = await server.start(port, ipAddress)
+	let server = new Server(site)
+	let addr = await server.start(port, ipAddress)
 
 	console.log("Listening on %s:%d", addr.address, addr.port)
 

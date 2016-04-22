@@ -10,7 +10,7 @@ function callbackPromise(promise, callback) {
 }
 
 exports.setup = function setupMiddleware(pageHandler, fileHandler) {
-	var app = connect()
+	let app = connect()
 
 	app.use(compression())
 

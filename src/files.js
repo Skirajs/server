@@ -1,7 +1,7 @@
 const st = require("st")
 
 exports.setup = function setupFileHandler(site) {
-	var opts = {
+	let opts = {
 		path: process.cwd() + "/public",
 		passthrough: true,
 		index: false,
@@ -10,7 +10,7 @@ exports.setup = function setupFileHandler(site) {
 	// we need this option or the file handler will serve our 404s
 	opts.passthrough = true
 
-	for (var i in site.project.files) {
+	for (let i in site.project.files) {
 		opts[i] = site.project.files[i]
 	}
 

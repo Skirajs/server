@@ -12,8 +12,8 @@ Handler.prototype.run = async function handleRequest(err, req, res) {
 		err.httpCode = 500
 	}
 
-	var path = err ? "error-" + err.httpCode : req.url.split(/\?|&/)[0]
-	var scope = this.site.resolve(path)
+	let path = err ? "error-" + err.httpCode : req.url.split(/\?|&/)[0]
+	let scope = this.site.resolve(path)
 
 	if (!scope || !scope.page) {
 		throw err
@@ -21,7 +21,7 @@ Handler.prototype.run = async function handleRequest(err, req, res) {
 
 	scope.request = req
 
-	var output = await this.site.process(scope)
+	let output = await this.site.process(scope)
 
 	res.writeHead(output.status, output.headers)
 	res.end(output.content)

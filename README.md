@@ -2,10 +2,9 @@
 
 Server for serving skira sites from the back-end.
 
-[![NPM Version][npm-image]][npm-url]
+[![Build Status][ci-image]][ci-url]
 [![Dependency Status][deps-image]][deps-url]
 [![devDependency Status][devdeps-image]][devdeps-url]
-[![License][license-image]][license-url]
 [![Chat][chat-image]][chat-url]
 
 ## Status
@@ -30,17 +29,15 @@ skira-server 8000 127.0.0.1
 
 The port `8000` and IP address `127.0.0.1` are optional and for demonstration purposes.
 
-## Contributing
+## License
 
-We recommend installing the ESLint and JSCS plugins into your editor to instantly check your code against the guidelines. This will make pull requests easier for everyone.
+MIT
 
-[npm-image]: https://img.shields.io/npm/v/skira-server.svg
-[npm-url]: https://npmjs.org/package/skira-server
+[ci-image]: https://img.shields.io/travis/skira-project/server.svg
+[ci-url]: https://travis-ci.org/skira-project/server
 [deps-image]: https://img.shields.io/david/skira-project/server.svg
 [deps-url]: https://david-dm.org/skira-project/server
 [devdeps-image]: https://img.shields.io/david/dev/skira-project/server.svg
 [devdeps-url]: https://david-dm.org/skira-project/server#info=devDependencies
-[license-image]: https://img.shields.io/github/license/skira-project/server.svg
-[license-url]: LICENSE
 [chat-image]: https://img.shields.io/gitter/room/skira-project/skira.svg
 [chat-url]: https://gitter.im/skira-project/skira

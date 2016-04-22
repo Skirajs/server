@@ -3,4 +3,3 @@ src
 .eslintrc
 .jscsrc
 .travis.yml
-!./lib

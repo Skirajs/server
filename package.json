@@ -1,13 +1,13 @@
 {
   "name": "skira-server",
-  "version": "0.7.3-3",
+  "version": "0.7.4",
   "description": "Server for serving skira sites from the back-end.",
-  "main": "lib/server",
+  "main": "dist/server",
   "bin": {
-    "skira-server": "lib/skira-server.js"
+    "skira-server": "dist/bin/skira-server.js"
   },
   "scripts": {
-    "build": "babel -d lib src",
+    "build": "babel -d dist src",
     "lint": "eslint src && jscs src"
   },
   "repository": {
@@ -31,7 +31,7 @@
     "connect": "^3.4.1",
     "cookies": "^0.6.1",
     "serialize-error": "^2.0.0",
-    "skira-core": "^0.7.5-5",
+    "skira-core": "^0.7.8-1",
     "st": "^1.1.0"
   },
   "devDependencies": {
